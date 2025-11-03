@@ -1,188 +1,266 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <title>Soluciones digitales e IA a la medida | Hestezna</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Hestezna Desarrolla de apps móviles y web, sitios personalizados, marketing digital e inteligencia artificial (LLM). Acelera el crecimiento de tu negocio con soluciones a medida." />
-  <meta name="theme-color" content="#001019" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <!-- Asegúrate que el archivo styles.css esté exactamente en el mismo directorio -->
-  <link rel="stylesheet" href="styles_V1.css" />
-</head>
-<body>
-    <script src="tokens_V1.js"></script>
-  <header class="site-header">
-    <div class="container nav-wrapper">
-      <a href="/" class="brand" aria-label="Hestezna Inicio">
-        <img src="assets/logo-hestezna-white.svg" alt="Hestezna" width="160" height="32" loading="eager">
-      </a>
-      <nav aria-label="Principal">
-        <ul class="nav">
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#casos">Portafolio</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a class="btn btn-primary btn-small" href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hestezna — Full Vision</title>
+    <meta name="description" content="Preview Full Vision — Hestezna">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="top-nav">
+      <div class="nav-inner">
+  <a href="index.html" class="brand" aria-label="Hestezna Inicio">
+          <img src="assets/images/HESTEZNA_NEGRO.png" alt="Hestezna" width="160" height="32" loading="eager">
+        </a>
+        <nav class="top-links" aria-label="principal">
+          <a href="index.html">Inicio</a>
+          <a href="casos.html">Portafolio</a>
+          <a class="btn" href="#contact">Contacto</a>
+          <a class="lang-toggle" href="#" lang="en" title="English">EN</a>
+        </nav>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero" id="inicio">
-      <div class="hero-bg-decor" aria-hidden="true"></div>
-      <div class="container hero-grid">
+    <div class="wrap">
+      <section class="hero-split">
         <div class="hero-copy">
-          <h1>Soluciones digitales y de inteligencia artificial a la medida de tu negocio</h1>
-          <p class="lead">
-            Creamos aplicaciones, sitios web y estrategias de marketing digital impulsadas por tecnología de vanguardia y Machine Learning, para que tu empresa crezca más rápido y con mejores resultados.
-          </p>
-          <div class="hero-actions">
-            <a href="#contacto" class="btn btn-primary" aria-label="Solicita tu propuesta ahora">Contactanos</a>
-            <a href="#casos" class="btn btn-outline">Ver casos</a>
-          </div>
-          <div class="mini-services" aria-label="Resumen de servicios">
+          <h1>Soluciones digitales y de inteligencia artificial que transforman negocios.</h1>
+          <p>Creamos aplicaciones, sitios web y estrategias de marketing digital impulsadas por IA y diseño.</p>
+          <div class="mini-services">
             <span>Apps Móviles</span>
             <span>Apps Web</span>
             <span>Sitios Web</span>
             <span>Marketing Digital</span>
             <span>IA &amp; LLM</span>
           </div>
+          <div class="hero-actions"><a href="#contact">Contáctanos</a></div>
         </div>
-        <div class="hero-visual">
-          <figure class="mockup" aria-describedby="hero-visual-caption">
-            <img src="assets/hero-illustration.webp" alt="Panel inteligente con analítica y elementos de IA" width="540" height="480" loading="eager">
-            <figcaption id="hero-visual-caption" class="sr-only">
-              Representación de dashboard y analítica con IA
-            </figcaption>
-          </figure>
+        <div class="hero-graphic">
+          <img src="assets/images/Hero-unsplash.jpg" alt="mockup">
         </div>
-      </div>
-      <div class="hero-glow" aria-hidden="true"></div>
-    </section>
+      </section>
 
-    <!-- Servicios -->
-    <section id="servicios" class="section">
-      <div class="container">
+      <div class="services-header">
         <h2>Servicios</h2>
-        <p class="section-intro">Desarrollo, crecimiento y automatización con enfoque en resultados medibles.</p>
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="icon" aria-hidden="true">📱</div>
-            <h3>Desarrollo de Apps Móviles</h3>
-            <p>Creamos aplicaciones nativas y multiplataforma que conectan tu negocio con tus clientes en cualquier lugar.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon" aria-hidden="true">🖥️</div>
-            <h3>Desarrollo de Apps Web</h3>
-            <p>Plataformas web robustas y seguras que optimizan procesos y mejoran la experiencia de usuario.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon" aria-hidden="true">🌐</div>
-            <h3>Sitios Web Personalizados</h3>
-            <p>Diseños únicos, rápidos y funcionales, optimizados para SEO y adaptados a cualquier dispositivo.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon" aria-hidden="true">📈</div>
-            <h3>Marketing Digital</h3>
-            <p>Estrategias publicitarias y de posicionamiento que generan más clientes y mayor visibilidad online.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon" aria-hidden="true">🤖</div>
-            <h3>IA y Machine Learning (LLM)</h3>
-            <p>Soluciones inteligentes: chatbots, análisis predictivo y automatización para hacer tu negocio más eficiente.</p>
-          </article>
+        <p>Desarrollo, crecimiento y automatización con enfoque en resultados medibles.</p>
+      </div>
+
+      <div class="cards-row">
+        <div class="card">
+          <div>
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#fff"/><rect x="10.5" y="17.2" width="3" height="1.2" rx="0.6" fill="#fff"/></svg></div>
+            <div class="title">Desarrollo de Apps Móviles<br><small>Aplicaciones nativas y multiplataforma</small></div>
+          </div>
+          <div class="copy">Creamos aplicaciones nativas y multiplataforma que conectan tu negocio con tus clientes en cualquier lugar.</div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8v-2H8v2z"/></svg></div>
+            <div class="title">Desarrollo de Apps Web<br><small>Plataformas robustas y seguras</small></div>
+          </div>
+          <div class="copy">Plataformas web robustas y seguras que optimizan procesos y mejoran la experiencia de usuario.</div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12h18" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/><path d="M12 3c2 3 2 18 0 18" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/><path d="M5 7c3 1.5 11 1.5 14 0" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="title">Sitios Web Personalizados<br><small>Diseños únicos y optimizados</small></div>
+          </div>
+          <div class="copy">Diseños únicos, rápidos y funcionales, optimizados para SEO y adaptados a cualquier dispositivo.</div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="10" width="4" height="8" rx="1"/><rect x="9" y="6" width="4" height="12" rx="1"/><rect x="15" y="2" width="4" height="16" rx="1"/></svg></div>
+            <div class="title">Marketing Digital<br><small>Estrategias y posicionamiento</small></div>
+          </div>
+          <div class="copy">Estrategias publicitarias y de posicionamiento que generan más clientes y mayor visibilidad online.</div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="3" width="14" height="12" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="#fff"/><path d="M9 14v2a3 3 0 0 0 6 0v-2"/></svg></div>
+            <div class="title">IA y Machine Learning (LLM)<br><small>Chatbots, análisis y automatización</small></div>
+          </div>
+          <div class="copy">Soluciones inteligentes: chatbots, análisis predictivo y automatización para hacer tu negocio más eficiente.</div>
         </div>
       </div>
-    </section>
 
-    <!-- Beneficios -->
-    <section id="beneficios" class="section alt">
-      <div class="container benefits-grid">
-        <div>
-          <h2>Beneficios diferenciales</h2>
-          <p>Nos enfocamos en velocidad, personalización y resultados reales acompañando tu crecimiento.</p>
-        </div>
-        <ul class="benefit-list">
-          <li><span class="emoji" aria-hidden="true">🚀</span> <strong>Resultados rápidos:</strong> desarrollos ágiles y entregas en tiempo récord.</li>
-          <li><span class="emoji" aria-hidden="true">🎯</span> <strong>100% personalizado:</strong> soluciones adaptadas a tu modelo de negocio.</li>
-          <li><span class="emoji" aria-hidden="true">📊</span> <strong>Orientado a resultados:</strong> medimos y optimizamos cada proyecto.</li>
-          <li><span class="emoji" aria-hidden="true">🤝</span> <strong>Acompañamiento experto:</strong> soporte y asesoría continua.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Casos de éxito -->
-    <section id="casos" class="section">
-      <div class="container">
-        <h2>Casos de éxito</h2>
-        <div class="cases-grid">
-          <article class="case-card">
-            <div class="case-media">
-              <img src="assets/caso-app-reservas.webp" alt="App de reservas para servicios con panel de gestión" loading="lazy" width="480" height="320">
+      <div class="industries">
+        <div class="inner">
+          <div>
+            <h2>Industrias que atendemos</h2>
+            <p>La IA potencia operaciones, mejora la toma de decisiones y abre nuevas fuentes de ingresos con resultados medibles.</p>
+            <div class="industry-chips" aria-hidden="false">
+              <span class="industry-chip"><span class="dot" style="background:var(--white)"></span>Real Estate &amp; Prop Tech</span>
+              <span class="industry-chip"><span class="dot" style="background:var(--white)"></span>HealthTech</span>
+              <span class="industry-chip"><span class="dot" style="background:var(--white)"></span>FinTech</span>
+              <span class="industry-chip"><span class="dot" style="background:var(--white)"></span>EducationTech</span>
+              <span class="industry-chip"><span class="dot" style="background:var(--white)"></span>Retail &amp; E-commerce</span>
+              <span class="industry-chip"><span class="dot" style="background:var(--white)"></span>Media &amp; Sports</span>
             </div>
-            <div class="case-content">
-              <h3>App de reservas para empresa de servicios</h3>
-              <p>Reducimos un 40% el tiempo de gestión y aumentamos un 25% las reservas online en 3 meses.</p>
-            </div>
-          </article>
-          <article class="case-card">
-            <div class="case-media">
-              <img src="assets/caso-marketing-ecommerce.webp" alt="Campaña de marketing digital para e-commerce" loading="lazy" width="480" height="320">
-            </div>
-            <div class="case-content">
-              <h3>Campaña de marketing para e-commerce</h3>
-              <p>+120% de ventas y posicionamiento en el top 3 de Google en menos de 6 meses.</p>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- Logos -->
-    <section id="logos" class="section skinny">
-      <div class="container">
-        <h2 class="sr-only">Clientes</h2>
-        <p class="logos-intro">Empresas que han transformado su negocio con nuestras soluciones digitales:</p>
-        <div class="logo-row">
-          <img src="assets/logo1.svg" alt="Cliente 1" loading="lazy">
-            <img src="assets/logo2.svg" alt="Cliente 2" loading="lazy">
-          <img src="assets/logo3.svg" alt="Cliente 3" loading="lazy">
-          <img src="assets/logo4.svg" alt="Cliente 4" loading="lazy">
-          <img src="assets/logo5.svg" alt="Cliente 5" loading="lazy">
+  <div id="about" class="about">
+        <div class="inner">
+          <div>
+            <h3>Sobre Hestezna</h3>
+            <p><strong>Más de una década desarrollando tecnología, diseño e inteligencia artificial para impulsar el crecimiento digital de empresas en todo el mundo.</strong></p>
+            <p>En Hestezna integramos diseño, desarrollo y machine learning para crear soluciones digitales premium. Nuestra experiencia de 10+ años, con más de 100 proyectos desarrollados y clientes en 6 países, nos permite crear soluciones que realmente marcan la diferencia.</p>
+            <p>Nuestra esencia está en la innovación, la precisión técnica y la experiencia centrada en el usuario, acompañando a cada cliente desde la estrategia hasta el producto final.</p>
+          </div>
+          <div class="about-stats" aria-hidden="false">
+            <div class="stat"><div class="n">500,000+</div><div class="t">Usuarios beneficiados</div></div>
+            <div class="stat"><div class="n">4.8/5</div><div class="t">Valoración promedio</div></div>
+            <div class="stat"><div class="n">75%</div><div class="t">Decisiones más rápidas</div></div>
+            <div class="stat"><div class="n">98%</div><div class="t">Disponibilidad garantizada</div></div>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- CTA final -->
-    <section id="cta-final" class="cta-section">
-      <div class="container cta-inner">
-        <h2>¿Listo para llevar tu proyecto al siguiente nivel?</h2>
-        <p>Creamos soluciones a la medida que combinan desarrollo, marketing e inteligencia artificial.</p>
-        <a href="#contacto" class="btn btn-primary btn-large">Solicitar propuesta ahora</a>
-      </div>
-    </section>
-  </main>
+  <section id="portfolio" class="portfolio">
+        <div class="inner">
+          <div>
+            <h2>Casos de éxito</h2>
+            <p>Cada proyecto representa un reto único. En Hestezna combinamos diseño, desarrollo e inteligencia artificial para crear soluciones digitales que generan resultados reales y medibles.</p>
+          </div>
+          <div class="case-cards">
+            <article class="case-card underline">
+              <div class="name">MC Design Studio</div>
+              <div class="desc">Rediseñamos la identidad visual y el sitio web de esta firma de arquitectura, destacando sus proyectos y logrando captar nuevos clientes de manera efectiva.</div>
+            </article>
+            <article class="case-card underline">
+              <div class="name">Ansab</div>
+              <div class="desc">Creamos una app de transferencias EE.UU.–Etiopía que combina seguridad, velocidad y facilidad de uso, optimizando la experiencia de envío de dinero para miles de usuarios.</div>
+            </article>
+            <article class="case-card underline">
+              <div class="name">LanewsSports</div>
+              <div class="desc">Desarrollamos un portal deportivo multiplataforma que permite publicar noticias rápidamente y mejorar la interacción con los fans, centralizando la gestión de contenidos.</div>
+            </article>
+          </div>
+          <div class="cta-wrap"><a href="casos.html" class="case-cta">Ver portafolio completo</a></div>
+        </div>
+      </section>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <img src="assets/logo-hestezna-white.svg" alt="Hestezna" width="140" height="28" loading="lazy">
-        <p>Soluciones digitales e IA para tu crecimiento.</p>
+  <section id="contact" class="contact-minimal">
+    <div class="contact-minimal-inner">
+      <div class="contact-card">
+        <div class="contact-header">
+          <h2>Hablemos de tu próximo proyecto</h2>
+          <p>Cuéntanos tu idea y te ayudamos a convertirla en una solución digital real y escalable.</p>
+        </div>
+        <form class="contact-form-minimal" action="#" method="post">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input id="name" name="name" placeholder="Tu nombre">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="tu@correo.com">
+            </div>
+            <div class="field full">
+              <label for="phone">Teléfono</label>
+              <input id="phone" name="phone" placeholder="+1...">
+            </div>
+            <div class="field full">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" placeholder="Cuéntanos tu proyecto..."></textarea>
+            </div>
+            <!-- hCaptcha widget removed per request -->
+            <!-- Web3Forms fields (handled by script.js) -->
+            <input type="hidden" name="access_key" value="ded95da1-7387-4ce3-b918-9eea75da50f5">
+            <input type="hidden" name="subject" value="Nuevo contacto — hestezna.com">
+            <!-- Honeypot (anti-spam): no llenar -->
+            <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" value="">
+            <div class="actions full">
+              <button type="submit" class="btn-submit">Enviar mensaje</button>
+            </div>
+            <div class="full"><div class="form-status" role="status" aria-live="polite" hidden></div></div>
+          </div>
+        </form>
       </div>
-      <nav aria-label="Secundario">
-        <ul class="footer-nav">
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#casos">Portafolio</a></li>
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-      <div class="legal">
-        <small>&copy; 2025 Hestezna. Todos los derechos reservados.</small>
+      <aside class="contact-aside">
+        <div class="aside-card">
+          <div class="aside-title">Contacto directo</div>
+          <a class="btn-whatsapp" href="https://wa.me/525610441157?text=Hola%20Hestezna%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+          <div class="aside-contact-lines">
+            <div>Email: <a href="mailto:info@hestezna.com">info@hestezna.com</a></div>
+          </div>
+          <div class="aside-meta">También puedes seguirnos:</div>
+          <div class="aside-socials">
+            <a href="https://www.facebook.com/Hestezna/" aria-label="Facebook" title="Facebook">
+              <img src="assets/icons/Facebook.svg" width="18" height="18" alt="" aria-hidden="true">
+            </a>
+            <a href="https://www.instagram.com/hestezna/" aria-label="Instagram" title="Instagram">
+              <img src="assets/icons/Instagram.svg" width="18" height="18" alt="" aria-hidden="true">
+            </a>
+            <a href="https://www.tiktok.com/@hestezna" aria-label="TikTok" title="TikTok">
+              <img src="assets/icons/TikTok.svg" width="18" height="18" alt="" aria-hidden="true">
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+    </div>
+
+    <!-- old footer removed -->
+
+<!-- New dark footer inserted to match design -->
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="assets/images/HESTEZNA_BLANCO.png" alt="Hestezna">
+      </div>
+      <p class="footer-desc">Diseño, desarrollo e inteligencia artificial para crear productos digitales que impulsan el crecimiento.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-nav-list">
+        <li><a href="index.html#about">Sobre Hestezna</a></li>
+  <li><a href="casos.html">Portafolio</a></li>
+        <li><a href="index.html#contact">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Use</a>
       </div>
     </div>
-  </footer>
-</body>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <div class="contact-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg> <a href="mailto:info@hestezna.com" style="color:var(--white);text-decoration:underline">info@hestezna.com</a></div>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/Hestezna/" aria-label="Facebook" title="Facebook">
+            <img src="assets/icons/Facebook.svg" width="18" height="18" alt="" aria-hidden="true">
+          </a>
+          <a href="https://www.instagram.com/hestezna/" aria-label="Instagram" title="Instagram">
+            <img src="assets/icons/Instagram.svg" width="18" height="18" alt="" aria-hidden="true">
+          </a>
+          <a href="https://www.tiktok.com/@hestezna" aria-label="TikTok" title="TikTok">
+            <img src="assets/icons/TikTok.svg" width="18" height="18" alt="" aria-hidden="true">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">© 2025 Hestezna. Todos los derechos reservados.</div>
+
+  <!-- Web3Forms client removed (no captcha) -->
+    <script src="tokens_V1.js"></script>
+    <script src="script.js" defer></script>
+  </body>
 </html>
