@@ -1,4 +1,4 @@
-/* Production stylesheet for Hestezna */
+/* Standalone preview stylesheet copied from preview-full-vision.html */
 :root{
 	--bg:#f7f7f8; --dark:#001019; --white:#ffffff;
 	--accent:#5A11CC; --accent-rgb:90 17 204; --accent-rgb-csv:90,17,204; --accent-2:#7C9CBF;
@@ -93,7 +93,7 @@ html.no-backdrop .top-nav.scrolled{
 }
 
 /* Spacer used to prevent layout jump when nav becomes fixed */
-/* (nav spacer no longer used) */
+.nav-spacer{display:block;width:100%;height:0;}
 
 /* Smooth transition for visual changes */
 .top-nav{transition:box-shadow .22s ease;}

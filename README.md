@@ -1,70 +1,194 @@
-# Web-Hestezna — README
+# 🌐 Hestezna Website
 
-Este repositorio contiene la web estática del proyecto Hestezna. Este README documenta el estado actual, dónde están los archivos activos, cuál CSS es el oficial y cómo realizar copias de seguridad y restauraciones seguras.
+### Sitio corporativo y portafolio digital
 
-## Resumen rápido
-- Sitio principal: `index.html` (raíz)
-- Hoja de estilos oficial (actual): `styles.css` (raíz)
-- JS principal: `script.js` (raíz)
-- Tokens: `tokens_V1.js` (raíz)
-- Backup consolidado: `backup_consolidado_2025-10-07/` (contiene copias de seguridad)
+*(Corporate and Digital Portfolio Website)*
 
-## Envío del formulario de contacto (Microsoft 365 + Graph)
-El sitio envía el formulario vía un endpoint serverless (`/api/contact`) que usa Microsoft Graph para enviar correo como tu buzón corporativo.
+---
 
-### Dónde está el endpoint
-- Archivo: `api/contact.js` (compatible con Vercel Serverless Functions).
+## 🇪🇸 Descripción general
 
-### Variables de entorno requeridas
-Configúralas en tu plataforma (Vercel: Project → Settings → Environment Variables):
+**Hestezna** es un sitio web corporativo desarrollado 100% a código (HTML, CSS y JavaScript) que presenta los servicios, proyectos y capacidades de la compañía.
+El proyecto se centra en ofrecer una experiencia limpia, moderna y visualmente profesional, con diseño responsivo y optimizado para carga rápida.
 
-- `MS_TENANT_ID` — ID de tu tenant (Azure AD)
-- `MS_CLIENT_ID` — App Registration (Client ID)
-- `MS_CLIENT_SECRET` — Secret de la App Registration
-- `MS_FROM_EMAIL` — Buzón que envía (ej. `info@hestezna.com` o `no-reply@hestezna.com`)
-- `CONTACT_TO_EMAIL` — (opcional) Destino; default `info@hestezna.com`
-- `CONTACT_PUBLIC_KEY` — (opcional) Valor para header `x-api-key` como protección simple
+**Versión actual (Noviembre 2025)**
 
-### Permisos en Azure
-1. Azure Portal → Entra ID (Azure AD) → App registrations → New registration.
-2. Crea un secreto en Certificates & secrets.
-3. API permissions → Microsoft Graph → Application permissions → agrega `Mail.Send` → Grant admin consent.
-4. Asegura que el buzón `MS_FROM_EMAIL` exista y tenga licencia.
+* Estructura optimizada y limpia.
+* Integración de formulario de contacto mediante **[Web3Forms](https://web3forms.com)** (sin endpoint backend).
+* Eliminación de endpoints y archivos obsoletos (`/api`, `backup_consolidado_2025-10-07`, `preview-full-vision.html`, `contacto.html`, etc.).
+* Incorporación de nueva arquitectura visual, íconos SVG y recursos gráficos actualizados.
 
-### Frontend (ya listo)
-`tokens_V1.js` define:
+---
 
-# Web-Hestezna
+## 🇬🇧 Overview
 
-Sitio estático bilingüe (ES/EN) con formulario de contacto usando Web3Forms. Este README refleja el estado final de producción tras la limpieza.
+**Hestezna** is a fully hand-coded corporate website (HTML, CSS, and JavaScript) showcasing the company’s portfolio, services, and AI-driven solutions.
+The current version delivers a refined UX/UI foundation with modern visuals and optimized loading performance.
 
-## Estructura activa
-- Páginas ES: `index.html`, `casos.html`, `privacy.html`, `terms.html`
-- Páginas EN: `en/index.html`, `en/cases.html`, `en/privacy.html`, `en/terms.html`
-- Estilos: `styles.css`
-- JS: `script.js`
-- Config pública: `tokens_V1.js`
-- Assets: `assets/`
+**Current Release (November 2025)**
 
-## Formulario de contacto (Web3Forms)
-Frontend puro, sin backend propio. `tokens_V1.js` expone las claves públicas y `script.js` realiza el `POST` a Web3Forms.
+* Clean and optimized project structure.
+* Contact form powered by **[Web3Forms](https://web3forms.com)** (client-side submission, no API).
+* Removed legacy files and endpoints (`/api`, backups, test pages).
+* Updated assets: SVG icons, hero images, and bilingual content.
 
-Campos ocultos en los formularios:
-- `access_key`: llave pública de Web3Forms
-- `subject`: asunto por defecto
+---
 
-Seguridad básica:
-- Honeypot (`.hp-field`)
-- Validación y tiempo mínimo de interacción
+## 🧱 Estructura del proyecto / Project Structure
 
-## Desarrollo local
-Abre `index.html` en el navegador o sirve la carpeta con un server estático a elección.
+```
+Web-Hestezna/
+│
+├── assets/
+│   ├── icons/        → SVGs de redes sociales, banderas, UI
+│   └── images/       → Imágenes del sitio (hero, portafolio, marcas)
+│
+├── en/               → Versión en inglés (index, cases, privacy, terms)
+│
+├── index.html        → Página principal
+├── casos.html        → Página de casos / proyectos
+├── privacy.html      → Aviso de privacidad
+├── terms.html        → Términos y condiciones
+├── styles.css        → Estilos principales
+├── script.js         → Interactividad (scroll, navegación, animaciones)
+├── tokens_V1.js      → Variables y tokens de diseño
+└── README.md
+```
 
-## SEO/Idiomas
-El switch ES/EN en el navbar usa rutas relativas y muestra banderas (`assets/icons/mx.svg` y `assets/icons/us.svg`).
+---
 
-## Limpieza aplicada
-Se eliminaron recursos no usados (endpoint de API, vistas de preview y backups antiguos). El proyecto es 100% estático.
+## ✉️ Formulario de contacto / Contact Form
 
-Fecha: 2025-11-03
-# con Python 3
+La funcionalidad de contacto ahora se gestiona mediante **Web3Forms**, eliminando la necesidad de backend propio.
+Para editarlo:
+
+1. Abre `index.html`.
+2. Localiza el formulario en la sección `#contact`.
+3. Sustituye el `access_key` por tu propia clave de Web3Forms.
+
+---
+
+## ⚙️ Requisitos / Requirements
+
+No se requiere servidor backend.
+Solo necesitas un entorno de hosting estático (Neubox, Hostinger, GitHub Pages o Netlify).
+
+---
+
+## 🚀 Deploy
+
+1. Sube los archivos al servidor o repositorio.
+2. Asegúrate de que las rutas relativas (`./assets/...`) se mantengan intactas.
+3. Verifica los formularios y enlaces de navegación.
+
+---
+
+## 🧹 Mantenimiento y limpieza / Maintenance Notes
+
+* Limpieza completa y optimización de código realizada en **noviembre de 2025**.
+* Se eliminaron archivos legacy: `/api`, `contacto.html`, `en/contact.html`, `preview-full-vision.html`, `backup_consolidado_2025-10-07/`.
+* Actualización de estructura y normalización de recursos gráficos.
+
+---
+
+## 📄 Licencia / License
+
+© 2025 **Hestezna** — Todos los derechos reservados.
+All rights reserved.
+# 🌐 Hestezna Website
+
+### Sitio corporativo y portafolio digital
+
+*(Corporate and Digital Portfolio Website)*
+
+---
+
+## 🇪🇸 Descripción general
+
+**Hestezna** es un sitio web corporativo desarrollado 100% a código (HTML, CSS y JavaScript) que presenta los servicios, proyectos y capacidades de la compañía.
+El proyecto se centra en ofrecer una experiencia limpia, moderna y visualmente profesional, con diseño responsivo y optimizado para carga rápida.
+
+**Versión actual (Noviembre 2025)**
+
+* Estructura optimizada y limpia.
+* Integración de formulario de contacto mediante **[Web3Forms](https://web3forms.com)** (sin endpoint backend).
+* Eliminación de endpoints y archivos obsoletos (`/api`, `backup_consolidado_2025-10-07`, `preview-full-vision.html`, `contacto.html`, etc.).
+* Incorporación de nueva arquitectura visual, íconos SVG y recursos gráficos actualizados.
+
+---
+
+## 🇬🇧 Overview
+
+**Hestezna** is a fully hand-coded corporate website (HTML, CSS, and JavaScript) showcasing the company’s portfolio, services, and AI-driven solutions.
+The current version delivers a refined UX/UI foundation with modern visuals and optimized loading performance.
+
+**Current Release (November 2025)**
+
+* Clean and optimized project structure.
+* Contact form powered by **[Web3Forms](https://web3forms.com)** (client-side submission, no API).
+* Removed legacy files and endpoints (`/api`, backups, test pages).
+* Updated assets: SVG icons, hero images, and bilingual content.
+
+---
+
+## 🧱 Estructura del proyecto / Project Structure
+
+```
+Web-Hestezna/
+│
+├── assets/
+│   ├── icons/        → SVGs de redes sociales, banderas, UI
+│   └── images/       → Imágenes del sitio (hero, portafolio, marcas)
+│
+├── en/               → Versión en inglés (index, cases, privacy, terms)
+│
+├── index.html        → Página principal
+├── casos.html        → Página de casos / proyectos
+├── privacy.html      → Aviso de privacidad
+├── terms.html        → Términos y condiciones
+├── styles.css        → Estilos principales
+├── script.js         → Interactividad (scroll, navegación, animaciones)
+├── tokens_V1.js      → Variables y tokens de diseño
+└── README.md
+```
+
+---
+
+## ✉️ Formulario de contacto / Contact Form
+
+La funcionalidad de contacto ahora se gestiona mediante **Web3Forms**, eliminando la necesidad de backend propio.
+Para editarlo:
+
+1. Abre `index.html`.
+2. Localiza el formulario en la sección `#contact`.
+3. Sustituye el `access_key` por tu propia clave de Web3Forms.
+
+---
+
+## ⚙️ Requisitos / Requirements
+
+No se requiere servidor backend.
+Solo necesitas un entorno de hosting estático (Neubox, Hostinger, GitHub Pages o Netlify).
+
+---
+
+## 🚀 Deploy
+
+1. Sube los archivos al servidor o repositorio.
+2. Asegúrate de que las rutas relativas (`./assets/...`) se mantengan intactas.
+3. Verifica los formularios y enlaces de navegación.
+
+---
+
+## 🧹 Mantenimiento y limpieza / Maintenance Notes
+
+* Limpieza completa y optimización de código realizada en **noviembre de 2025**.
+* Se eliminaron archivos legacy: `/api`, `contacto.html`, `en/contact.html`, `preview-full-vision.html`, `backup_consolidado_2025-10-07/`.
+* Actualización de estructura y normalización de recursos gráficos.
+
+---
+
+## 📄 Licencia / License
+
+© 2025 **Hestezna** — Todos los derechos reservados.
+All rights reserved.
