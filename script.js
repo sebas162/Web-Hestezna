@@ -8,7 +8,59 @@ document.addEventListener('DOMContentLoaded', () => {
 		// older browsers may not have CSS.supports
 		document.documentElement.classList.add('no-backdrop');
 	}
-	// Menú móvil legacy eliminado (no usado en el layout actual)
+	const btn = document.querySelector('.nav-toggle');
+	const nav = document.querySelector('.nav');
+
+	// Only attach mobile menu handlers if both elements exist.
+	// Do NOT abort initialization here; other features (smooth-scroll, observer, accordion)
+	// should run even when the site uses a different nav markup (.top-nav /.top-links).
+	if (btn && nav) {
+		btn.addEventListener('click', (ev) => {
+			ev.stopPropagation();
+			const isOpen = nav.classList.toggle('open');
+			btn.setAttribute('aria-expanded', String(isOpen));
+			// Cambiar SVG interno del botón
+			btn.innerHTML = isOpen ? (
+				`<!-- close -->
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+					<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>`
+			) : (
+				`<!-- menu -->
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+					<path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>`
+			);
+		});
+
+		// Cerrar el menú al hacer click en un enlace (mejora UX)
+		nav.addEventListener('click', (e) => {
+			const target = e.target;
+			if (target.tagName === 'A' && nav.classList.contains('open')) {
+				nav.classList.remove('open');
+				btn.setAttribute('aria-expanded', 'false');
+				// restaurar icono de menu
+				btn.innerHTML = `<!-- menu -->
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+						<path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>`;
+			}
+		});
+
+		// Cerrar el menú al hacer click fuera
+		document.addEventListener('click', (e) => {
+			if (!nav.classList.contains('open')) return;
+			const path = e.composedPath ? e.composedPath() : [];
+			if (!path.includes(nav) && !path.includes(btn)) {
+				nav.classList.remove('open');
+				btn.setAttribute('aria-expanded', 'false');
+				btn.innerHTML = `<!-- menu -->
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+						<path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>`;
+			}
+		});
+	}
 	
 		// Smooth scroll for contact links and set active nav
 		(function(){
@@ -101,6 +153,57 @@ document.addEventListener('DOMContentLoaded', () => {
 		})();
 
 
+		// Accordion behavior for in-page service details
+	(function(){
+	  const toggles = Array.from(document.querySelectorAll('.service-toggle'));
+	  if (!toggles.length) return;
+	
+		function closePanel(btn){
+			const id = btn.getAttribute('aria-controls');
+			const panel = document.getElementById(id);
+			if(!panel) return;
+			btn.setAttribute('aria-expanded','false');
+			panel.setAttribute('aria-hidden','true');
+			// animate collapse: set current height then to 0 so CSS transition runs
+			const full = panel.scrollHeight + 24;
+			panel.style.maxHeight = full + 'px';
+			// next frame, collapse
+			requestAnimationFrame(() => { panel.style.maxHeight = '0px'; });
+			// cleanup after transition
+			const cleanup = () => { panel.style.maxHeight = null; panel.removeEventListener('transitionend', cleanup); };
+			panel.addEventListener('transitionend', cleanup);
+		}
+	
+	  function openPanel(btn){
+	    const id = btn.getAttribute('aria-controls');
+	    const panel = document.getElementById(id);
+	    if(!panel) return;
+	    btn.setAttribute('aria-expanded','true');
+	    panel.setAttribute('aria-hidden','false');
+	    // set explicit maxHeight for smooth transition
+	    const full = panel.scrollHeight + 24;
+	    panel.style.maxHeight = full + 'px';
+	  }
+	
+	  function closeOthers(exceptBtn){
+	    toggles.forEach(t=>{ if(t!==exceptBtn) closePanel(t); });
+	  }
+	
+	  toggles.forEach(btn=>{
+	    btn.addEventListener('click', ()=>{
+	      const open = btn.getAttribute('aria-expanded') === 'true';
+	      if(open) closePanel(btn);
+	      else { closeOthers(btn); openPanel(btn); }
+	    });
+	
+	    btn.addEventListener('keydown',(ev)=>{
+	      const key = ev.key;
+	      if(key==='Enter' || key===' '){ ev.preventDefault(); btn.click(); }
+	      if(key==='ArrowDown' || key==='ArrowRight'){ ev.preventDefault(); const idx = toggles.indexOf(btn); toggles[(idx+1)%toggles.length].focus(); }
+	      if(key==='ArrowUp' || key==='ArrowLeft'){ ev.preventDefault(); const idx = toggles.indexOf(btn); toggles[(idx-1+toggles.length)%toggles.length].focus(); }
+	    });
+	  });
+	})();
 
 	// Sticky-like visual state using position:sticky and a visual "scrolled" class
 	(function(){
@@ -236,8 +339,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		const path = window.location.pathname;
 		const isEN = /\/en\//.test(path);
 		const file = path.split('/').pop() || 'index.html';
-		const mapToEN = { 'index.html':'index.html', 'casos.html':'cases.html', 'privacy.html':'privacy.html', 'terms.html':'terms.html' };
-		const mapToES = { 'index.html':'index.html', 'cases.html':'casos.html', 'privacy.html':'privacy.html', 'terms.html':'terms.html' };
+		const mapToEN = { 'index.html':'index.html', 'casos.html':'cases.html', 'contacto.html':'contact.html', 'privacy.html':'privacy.html', 'terms.html':'terms.html' };
+		const mapToES = { 'index.html':'index.html', 'cases.html':'casos.html', 'contact.html':'contacto.html', 'privacy.html':'privacy.html', 'terms.html':'terms.html' };
 		const target = isEN ? (mapToES[file] || 'index.html') : (mapToEN[file] || 'index.html');
 		// Use relative links so it works under subpaths (e.g., GitHub Pages)
 		const href = isEN ? ('../' + target) : ('en/' + target);
