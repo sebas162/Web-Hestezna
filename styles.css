@@ -17,12 +17,18 @@ body{margin:0;background:var(--bg);color:#111}
 
 /* NAV (white background like index) */
 .top-nav{background:var(--bg);border-radius:10px;padding:10px 20px;box-shadow:0 6px 20px rgba(0,0,0,0.06);position:sticky;top:0;z-index:1200;height:64px;min-height:64px;}
-.top-nav .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px}
+.top-nav .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px;position:relative}
 .top-nav .brand img{height:20px;width:auto;display:block}
 .brand{font-weight:800;color:var(--dark);text-decoration:none}
 .top-links{display:flex;gap:14px;align-items:center}
 .top-links a{color:var(--dark);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:300;font-size:16px;}
 .top-links a.btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px 12px;transition:none;box-shadow:none;}
+
+/* Mobile hamburger button (hidden on desktop) */
+.nav-toggle{display:none;align-items:center;justify-content:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px solid rgba(0,0,0,0.10);background:transparent;color:var(--dark);cursor:pointer}
+.nav-toggle svg{display:block}
+.nav-toggle:focus-visible{outline:none;box-shadow:0 0 0 3px var(--accent-022)}
+.top-nav.over-hero .nav-toggle{color:#fff;border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06)}
 
 /* Nav link hover and active animation */
 .top-links a{position:relative;transition:color .18s ease}
@@ -232,6 +238,18 @@ html.no-backdrop .top-nav.scrolled{
 		@media (max-width:520px) {
 			.cards-row{grid-template-columns:1fr}
 			.card{min-height:120px}
+		}
+
+		/* Mobile nav behavior */
+		@media (max-width:900px){
+			.nav-toggle{display:inline-flex}
+			/* Hide inline links on mobile until menu is opened */
+			.top-links.nav{display:none;position:absolute;top:64px;left:12px;right:12px;background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.06);box-shadow:0 18px 44px rgba(0,0,0,0.10);padding:10px;flex-direction:column;gap:4px;z-index:1500}
+			.top-links.nav.open{display:flex}
+			.top-links.nav a{padding:12px 10px;border-radius:8px}
+			.top-links.nav a.btn{border-color:rgba(0,0,0,0.10)}
+			/* Ensure legible colors even when header is over imagery */
+			.top-nav.over-hero .top-links.nav a{color:var(--dark);text-shadow:none}
 		}
 	/* Portfolio / Casos de éxito */
 	.portfolio{max-width:1160px;margin:6px auto 18px;padding:0;background:transparent}

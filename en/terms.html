@@ -6,6 +6,9 @@
     <title>Terms of Use – Hestezna</title>
     <meta name="description" content="Hestezna Website Terms of Use.">
     <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" href="../assets/icons/Favicon.png">
+  <link rel="shortcut icon" href="../assets/icons/Favicon.png">
+  <link rel="apple-touch-icon" href="../assets/icons/Favicon.png">
   </head>
   <body>
     <div class="top-nav">
@@ -13,7 +16,12 @@
         <a href="index.html" class="brand" aria-label="Hestezna Home">
           <img src="../assets/images/HESTEZNA_NEGRO.png" alt="Hestezna" width="160" height="32" loading="eager">
         </a>
-        <nav class="top-links" aria-label="main">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <nav class="top-links nav" id="site-menu" aria-label="main">
           <a href="index.html">Home</a>
           <a href="cases.html">Portfolio</a>
           <a class="btn" href="index.html#contact">Contact</a>

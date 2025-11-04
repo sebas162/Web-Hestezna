@@ -60,6 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
 					</svg>`;
 			}
 		});
+
+		// Cerrar con tecla Escape (accesibilidad)
+		document.addEventListener('keydown', (e) => {
+			if (e.key !== 'Escape') return;
+			if (!nav.classList.contains('open')) return;
+			nav.classList.remove('open');
+			btn.setAttribute('aria-expanded', 'false');
+			btn.innerHTML = `<!-- menu -->
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+					<path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>`;
+		});
 	}
 	
 		// Smooth scroll for contact links and set active nav
@@ -354,6 +366,57 @@ document.addEventListener('DOMContentLoaded', () => {
 		const iconPath = isEN ? ('../assets/icons/' + iconFile) : ('assets/icons/' + iconFile);
 		// Render image + code (sizes handled in CSS for perfect vertical centering)
 		toggle.innerHTML = `<img src="${iconPath}" alt="${code} flag">${code}`;
+	})();
+
+	// Favicon: render crisp 32/16 with slight inset to avoid edge distortion at small sizes
+	(function(){
+		try{
+			const isEN = /\/en\//.test(window.location.pathname);
+			const src = (isEN ? '../' : '') + 'assets/icons/Favicon.png';
+			const SCALE_FACTOR = 1.0; // 100% of the square (no padding)
+			const makeFavicon = (size)=> new Promise((resolve)=>{
+				const canvas = document.createElement('canvas');
+				canvas.width = size; canvas.height = size;
+				const ctx = canvas.getContext('2d');
+				const img = new Image();
+				img.onload = ()=>{
+					const maxW = Math.floor(size * SCALE_FACTOR);
+					const maxH = Math.floor(size * SCALE_FACTOR);
+					const scale = Math.min(maxW / img.naturalWidth, maxH / img.naturalHeight);
+					const w = Math.max(1, Math.round(img.naturalWidth * scale));
+					const h = Math.max(1, Math.round(img.naturalHeight * scale));
+					const x = Math.round((size - w) / 2);
+					const y = Math.round((size - h) / 2);
+					ctx.clearRect(0,0,size,size);
+					ctx.imageSmoothingEnabled = true;
+					ctx.imageSmoothingQuality = 'high';
+					ctx.drawImage(img, x, y, w, h);
+					resolve(canvas.toDataURL('image/png'));
+				};
+				img.onerror = ()=> resolve(null);
+				img.src = src;
+			});
+
+			(async()=>{
+				const data32 = await makeFavicon(32);
+				const data16 = await makeFavicon(16);
+				function upsertIcon(sizes, href){
+					if(!href) return;
+					let link = document.querySelector(`head link[rel="icon"][sizes="${sizes}"]`);
+					if(!link){
+						link = document.createElement('link');
+						link.setAttribute('rel','icon');
+						link.setAttribute('type','image/png');
+						link.setAttribute('sizes', sizes);
+						document.head.appendChild(link);
+					}
+					link.setAttribute('href', href);
+				}
+				// Update 32/16 to the generated, slightly inset versions to reduce aliasing/distortion
+				upsertIcon('32x32', data32);
+				upsertIcon('16x16', data16);
+			})();
+		}catch(e){ /* ignore favicon errors */ }
 	})();
 
 });
